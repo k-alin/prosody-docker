@@ -1,0 +1,42 @@
+version: '3.3'
+networks:
+  web:
+    driver: 'bridge'
+
+services:
+
+  db:
+    image: bitnami/postgresql:12.2.0
+    restart: unless-stopped
+    volumes:
+      - ./volumes/prosody/db/var/lib/postgresql/data:/bitnami/postgresql
+    .env_file: .env
+
+  # XMPP chat server: prosody
+  xmpp-server:
+    context: /opt/docker-compose/prosody/build
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - './volumes/prosody/conf:/etc/prosody/conf.d'
+      - './volumes/cert:/cert/:ro'
+      - './volumes/prosody/data:/var/lib/prosody/data'
+    ports:
+      - '5222:5222'
+      - '5223:5223'
+      - '5269:5269'
+      - '5280:5280'
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.xmpp-server.rule=Host(`$XMPP_SERVER_URL`) && PathPrefix(`/_xmpp`)
+      - traefik.http.routers.xmpp-server.entrypoints=websecure
+      - traefik.http.routers.xmpp-server.tls=true
+      - traefik.http.routers.xmpp-server.tls.domains[0].main=${XMPP_SERVER_URL}
+      - traefik.http.routers.xmpp-server.tls.domains[1].main=${XMPP_GROUPS_URL}
+      - traefik.http.routers.xmpp-server.tls.domains[3].main=${XMPP_HOST_URL_1}
+      - traefik.http.routers.xmpp-server.tls.domains[4].main=${XMPP_HOST_URL_2}
+      - traefik.http.routers.xmpp-server.tls.domains[5].main=${XMPP_HOST_URL_3}
+      - traefik.http.routers.xmpp-server.tls.certresolver=letsencrypt
+      - traefik.http.services.xmpp-server.loadbalancer.server.port=5280
+    networks:
+      - web

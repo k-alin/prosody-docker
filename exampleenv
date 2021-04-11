@@ -1,0 +1,66 @@
+# XMPP server main configuration file
+#
+
+#
+# Rename to `.env` and adjust to make it work!
+#
+
+# A freely chooseable name (required)
+#
+NAME="Le chat noir"
+
+ADMIN_EMAIL=USER@YOURDOMAIN.TLD
+XMPP_ADMIN=USER@YOURDOMAIN.TLD
+XMPP_SERVER_URL=xmpp.YOURDOMAIN.TLD
+
+# Group chat server (required)
+# A different domain pointing to the same server for running a multi-user chat 
+# (MUC). It can be a simple CNAME record in your DNS pointing to 
+# XMPP_SERVER_URL. It is required by XMPP, for more information check 
+# https://prosody.im/doc/modules/mod_muc
+#
+XMPP_GROUPS_URL=groups.xmpp.YOURDOMAIN.TLD
+
+
+# Web chat client (required)
+# A domain for the web chat client. All domains can be used, that point to the 
+# server. Also the same as XMPP_SERVER_URL or XMPP_GROUPS_URL and also any 
+# other (sub) domain.
+#
+XMPP_WEBCLIENT_URL=xmpp.YOURDOMAIN.TLD
+
+
+# Secret (required)
+#
+# A freely definable secret. Gives authorization to certain applications to 
+# talk to each other. For example allowing the xmpp-server to upload to the 
+# filer component.
+#
+SECRET=terriblesecretpleasechange1
+
+
+# Hosts of the xmpp addresses (optional)
+#
+# This field is optional and should be specified, in case the XMPP_SERVER_URL 
+# is not the same as the hosts used for forming the user jabber IDs. Be aware 
+# that using this, valid certificates need to be provided by your 
+# configuration.
+#
+# Several hosts can be speficied. Leave them empty if not used.
+# 
+XMPP_HOST_URL_1 =
+XMPP_HOST_URL_2 =
+XMPP_HOST_URL_3 =
+
+# maximum number of messages in history
+MAX_HISTORY = 100
+
+# amount of time until archive expires
+ARCHIVE_EXPIRY="1y"
+
+
+# Postgresql configuration
+
+POSTGRESQL_USERNAME=prosodyuser
+POSTGRESQL_PASSWORD=terriblepasswordpleasechange1
+POSTGRESQL_DATABASE=prosody

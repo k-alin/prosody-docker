@@ -1,0 +1,10 @@
+VirtualHost ("HOST")
+        http_external_url = "https://XMPP_SERVER/"
+        ssl = {
+                certificate = "/etc/prosody/certs/HOST.crt";
+                key = "/etc/prosody/certs/HOST.key";
+        } 
+        disco_items = { 
+                { "XMPP_GROUP_CHAT", "A group chat (muc) service" };
+        }
+
