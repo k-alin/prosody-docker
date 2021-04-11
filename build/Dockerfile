@@ -66,4 +66,4 @@ RUN mkdir -p /etc/prosody/conf.d && mkdir -p /etc/prosody/certs
 COPY conf/* /etc/prosody/
 
 #USER prosody
-CMD [ "/entrypoint/start.sh" ]
+CMD [ "/entrypoint/entrypoint.sh" ]

@@ -47,9 +47,11 @@ else
                /etc/prosody/virtual-hosts.cfg.lua
 
     mkdir -p /tmp/certs && mkdir -p /etc/prosody/certs
+    
+    CERT_PATH=$(find / -name acme.json | grep merged)
 
     # Prepare certificates to be in the default location where prosody expects them
-    if [ -f /cert/acme.json ]; then
+    if [ -f $CERT_PATH ]; then
         traefik-certs-dumper file --source /cert/acme.json --dest /tmp/certs --version v2
         mv /tmp/certs/certs/${XMPP_SERVER_URL}.crt /tmp/certs/private/${XMPP_SERVER_URL}.key /etc/prosody/certs/
         mv /tmp/certs/certs/${XMPP_GROUPS_URL}.crt /tmp/certs/private/${XMPP_GROUPS_URL}.key /etc/prosody/certs/
