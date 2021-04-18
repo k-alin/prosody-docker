@@ -7,7 +7,7 @@
 
 # A freely chooseable name (required)
 #
-NAME="Le chat noir"
+NAME=""
 
 ADMIN_EMAIL=USER@YOURDOMAIN.TLD
 XMPP_ADMIN=USER@YOURDOMAIN.TLD
