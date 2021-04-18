@@ -30,7 +30,7 @@ modules_enabled = {
 		"saslauth"; -- Authentication for clients and servers.
 		"server_contact_info"; -- Publish admin and contact information about the server.
 		"smacks"; -- XEP-0198: Support for unstable (mobile) Networks.
-		"smacks-offiline"; -- XEP-0198: Stream Management to survive small network outages
+		"smacks-offline"; -- XEP-0198: Stream Management to survive small network outages
 		"time"; -- Let others know the time here on this server.
 		"tls"; -- Add support for secure TLS on connections.
 		"throttle_presence"; -- Reduce presence status updates.
