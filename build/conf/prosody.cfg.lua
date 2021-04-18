@@ -55,7 +55,6 @@ http_paths = {
 
 -- Registration settings
 -- Allow only one registration every 5 minutes
-allow_registration = true
 -- registration_throttle_max = 1
 -- registration_throttle_period = 300
 -- register_web_template = "/usr/lib/prosody-register-web-template"
