@@ -26,13 +26,13 @@ else
     
     # Replace required variables
 
+    sed -i -e "s/{{DB_NAME}}/${POSTGRESQL_DATABASE}/
+	       s/{{DB_USER}}/${POSTGRESQL_USERNAME}/
+	       s/{{DB_PASS}}/${POSTGRESQL_PASSWORD}/" \
+               /etc/prosody/sql.cfg.lua
+
     sed -i -e "s/{{ADMIN_EMAIL}}/${XMPP_ADMIN_EMAIL}/
                s/{{XMPP_ADMIN}}/${XMPP_ADMIN}/
-	       s/{{DB_HOST}}/${XMPP_DB_HOST}/
-	       s/{{DB_PORT}}/${XMPP_DB_PORT}/
-	       s/{{DB_NAME}}/${POSTGRESQL_DATABASE}/
-	       s/{{DB_USER}}/${POSTGRESQL_USERNAME}/
-	       s/{{DB_PASS}}/${POSTGRESQL_PASSWORD}/
                s/{{XMPP_SERVER_URL}}/${XMPP_SERVER_URL}/
                s/{{XMPP_GROUPS_URL}}/${XMPP_GROUPS_URL}/
 	       s/{{XMPP_SECRET}}/${SECRET}/" \
