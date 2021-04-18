@@ -8,11 +8,12 @@ modules_enabled = {
 		"bosh"; -- Enable BOSH ("XMPP over HTTP") for web clients .
 		"carbons"; -- Syncing of messages between compatible devices.
 		"cloud_notify"; -- "Push notifcations" for new messages.
-		"csi"; -- Client state indication for less data transfer.
+		"csi"; -- Client state indication (active/inactive) for less data transfer.
 		"csi_battery_saver"; -- Hold unimportant stanzas until client comes online. 
 		"dialback"; -- s2s dialback support.
 		"disco"; -- Service discovery.
-		"http_upload_external"; -- Upload files to a server and share with others.
+		"http_upload";
+--		"http_upload_external"; -- Upload files to a server and share with others.
 		"invite"; -- Allows users to invite new users.
 		"lastlog"; -- Store time stamp of user's last login.
 		"log_auth"; -- Log failed login attempts.
@@ -21,15 +22,16 @@ modules_enabled = {
 		"pep"; -- Publish details about mood, music one is listening to or the current activity.
 		"ping"; -- Replies to XMPP pings with pongs.
 		"private"; -- Private XML storage (for room bookmarks, etc.)
-		"proxy65";
+		"profile"; 
+		"proxy65"; -- XEP-0065: SOCKS5 Bytestreams for file transfer
 		"register"; -- Allow users to register on this server using a client and change passwords.
 		"register_web"; -- Allow users to register online.
 		"roster"; -- Allow users to have a roster.
 		"saslauth"; -- Authentication for clients and servers.
 		"server_contact_info"; -- Publish admin and contact information about the server.
-		"smacks"; -- Support for unstable (mobile) Networks.
+		"smacks"; -- XEP-0198: Support for unstable (mobile) Networks.
+		"smacks-offiline"; -- XEP-0198: Stream Management to survive small network outages
 		"time"; -- Let others know the time here on this server.
-		"turncredentials"; -- Turn server for audio and video calls
 		"tls"; -- Add support for secure TLS on connections.
 		"throttle_presence"; -- Reduce presence status updates.
 		"uptime"; -- Report how long server has been running.
