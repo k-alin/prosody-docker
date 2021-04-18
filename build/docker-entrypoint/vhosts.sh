@@ -10,4 +10,4 @@ sed -e "s/HOST/${host}/
         s/XMPP_SERVER_URL/${XMPP_SERVER_URL}/
         s/XMPP_GROUPS_URL/${XMPP_GROUPS_URL}/" \
         /entrypoint/examplevhost.txt \
-        >> /etc/prosory/virtual-hosts.cfg.lua
+        >> /etc/prosody/virtual-hosts.cfg.lua
